@@ -22,12 +22,23 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $avatars = [
+            '/uploads/images/avatars/202110/29/1_1635522470_nB050EcW8c.jpg',
+            '/uploads/images/avatars/202110/29/1_1635522470_nB050EcW8c.jpg',
+            '/uploads/images/avatars/202110/29/1_1635522470_nB050EcW8c.jpg',
+            '/uploads/images/avatars/202110/29/1_1635522470_nB050EcW8c.jpg',
+            '/uploads/images/avatars/202110/29/1_1635522470_nB050EcW8c.jpg',
+            '/uploads/images/avatars/202110/29/1_1635522470_nB050EcW8c.jpg',
+        ];
+
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
+            'name' => $this->faker->name,
+            'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => '$2y$10$VBlmyUa.zrzS0ZclvFDnvOsS4zLUBfXn9koosPjTpps/k4JrV52Fm', // password
             'remember_token' => Str::random(10),
+            'introduction' => $this->faker->sentence(),
+            'avatar' => $this->faker->randomElement($avatars),
         ];
     }
 
