@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
         $user = User::find(1);
         $user->name = 'JiuXiao';
         $user->email = 'yinshen@79xj.cn';
-        $user->avatar = '/uploads/images/202110/29/2_1635496220_DFLMntqkxp.jpg';
+//        $user->avatar = '/uploads/images/202110/29/2_1635496220_DFLMntqkxp.jpg';
         $user->save();
     }
 }
