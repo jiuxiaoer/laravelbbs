@@ -33,13 +33,19 @@ class User extends Authenticatable implements MustVerifyEmailContract
      * 一对多一个用户多个帖子
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function topics()
-    {
+    public function topics() {
         return $this->hasMany(Topic::class);
     }
 
-    public function isAuthorOf($model)
-    {
+    /**
+     * 一对多绑定评论
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function replies() {
+        return $this->hasMany(Reply::class);
+    }
+
+    public function isAuthorOf($model) {
         return $this->id == $model->user_id;
     }
 }

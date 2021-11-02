@@ -27,7 +27,8 @@
         "laravel/ui": "3.0",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^5.10",
-        "phpunit/phpunit": "^9.5.10"
+        "phpunit/phpunit": "^9.5.10",
+        "summerblue/generator": "8.*"
     },
     "autoload": {
         "psr-4": {

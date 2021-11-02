@@ -16,8 +16,7 @@ class Topic extends Model
      * 一对一绑定分类
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function category()
-    {
+    public function category() {
         return $this->belongsTo(Category::class);
     }
 
@@ -25,13 +24,19 @@ class Topic extends Model
      * 一对一绑定用户
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user()
-    {
+    public function user() {
         return $this->belongsTo(User::class);
     }
 
-    public function scopeWithOrder($query, $order)
-    {
+    /**
+     * 一对多绑定评论
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function replies() {
+        return $this->hasMany(Reply::class);
+    }
+
+    public function scopeWithOrder($query, $order) {
         // 不同的排序，使用不同的数据读取逻辑
         switch ($order) {
             case 'recent':
@@ -44,21 +49,18 @@ class Topic extends Model
         }
     }
 
-    public function scopeRecentReplied($query)
-    {
+    public function scopeRecentReplied($query) {
         // 当话题有新回复时，我们将编写逻辑来更新话题模型的 reply_count 属性，
         // 此时会自动触发框架对数据模型 updated_at 时间戳的更新
         return $query->orderBy('updated_at', 'desc');
     }
 
-    public function scopeRecent($query)
-    {
+    public function scopeRecent($query) {
         // 按照创建时间排序
         return $query->orderBy('created_at', 'desc');
     }
 
-    public function link($params = [])
-    {
+    public function link($params = []) {
         return route('topics.show', array_merge([$this->id, $this->slug], $params));
     }
 }
