@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable implements MustVerifyEmailContract
 {
+    use Traits\ActiveUserHelper;
     use HasFactory, MustVerifyEmailTrait;
 
     protected $fillable = [
