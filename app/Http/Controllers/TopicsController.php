@@ -22,7 +22,7 @@ class TopicsController extends Controller
     {
         $topics = $topic->withOrder($request->order)
             ->with('user', 'category')  // 预加载防止 N+1 问题
-            ->paginate(20);
+            ->paginate(6);
         $active_users = $user->getActiveUsers();
         $links = $link->getAllCached();
 

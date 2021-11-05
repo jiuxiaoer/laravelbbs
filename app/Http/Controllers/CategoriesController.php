@@ -16,7 +16,7 @@ class CategoriesController extends Controller
         $topics = $topic->withOrder($request->order)
             ->where('category_id', $category->id)
             ->with('user',  'category')  // 预加载防止 N+1 问题
-            ->paginate(20);
+            ->paginate(6);
         // 活跃用户列表
         $active_users = $user->getActiveUsers();
         // 资源链接
