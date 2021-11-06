@@ -28,7 +28,17 @@
   <div class="container">
 
     @include('shared._messages')
-
+    <!--pjax加载动画-->
+      <div id="loading">
+        <div class="spinner">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
+      </div>
+      <!--pjax加载动画 结束-->
     @yield('content')
 
   </div>
