@@ -3,9 +3,34 @@
 @section('content')
 
   <div class="container">
+  @if(request()->pjax() ==1)
+    <!-- jQuery 3 -->
+      <link rel="stylesheet" type="text/css" href="{{ asset('css/simditor.css') }}">
+      <script type="text/javascript" src="{{ asset('js/module.js') }}"></script>
+      <script type="text/javascript" src="{{ asset('js/hotkeys.js') }}"></script>
+      <script type="text/javascript" src="{{ asset('js/uploader.js') }}"></script>
+      <script type="text/javascript" src="{{ asset('js/simditor.js') }}"></script>
+
+      <script>
+        $(document).ready(function() {
+          var editor = new Simditor({
+            textarea: $('#editor'),
+            upload: {
+              url: '{{ route('topics.upload_image') }}',
+              params: {
+                _token: '{{ csrf_token() }}'
+              },
+              fileKey: 'upload_file',
+              connectionCount: 3,
+              leaveConfirm: '文件上传中，关闭此页面将取消上传。'
+            },
+            pasteImage: true,
+          });
+        });
+      </script>
+    @endif
     <div class="col-md-10 offset-md-1">
       <div class="card ">
-
         <div class="card-body">
           <h2 class="">
             <i class="far fa-edit"></i>
@@ -58,6 +83,7 @@
   </div>
 
 @endsection
+
 @section('styles')
   <link rel="stylesheet" type="text/css" href="{{ asset('css/simditor.css') }}">
 @stop

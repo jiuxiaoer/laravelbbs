@@ -1,9 +1,12 @@
 {
-    "/js/app.js": "/js/app.js?id=e965e3eb7bbfd25a8c68",
+    "/js/app.js": "/js/app.js?id=d27ce176e7f2c4e511d4",
     "/css/app.css": "/css/app.css?id=dd97782529ec13c6ac00",
     "/js/hotkeys.js": "/js/hotkeys.js?id=2683fa599862132f1982",
     "/js/module.js": "/js/module.js?id=378c6b989c0c43adbb52",
     "/js/simditor.js": "/js/simditor.js?id=d50f44b97bfe56d7bb1c",
+    "/js/simplemde.js": "/js/simplemde.js?id=766670b5adfd572a8556",
+    "/js/simplemde.min.js": "/js/simplemde.min.js?id=fd052f831c01ff10535c",
     "/js/uploader.js": "/js/uploader.js?id=50d797917488e6d14c91",
-    "/css/simditor.css": "/css/simditor.css?id=6156fc93abf7151ab79b"
+    "/css/simditor.css": "/css/simditor.css?id=6156fc93abf7151ab79b",
+    "/css/simplemde.css": "/css/simplemde.css?id=57540a17fb1208ee34a7"
 }

@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TopicRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Handlers\ImageUploadHandler;
+use App\Handlers\MarkdownHandler;
 
 class TopicsController extends Controller
 {
@@ -56,7 +57,8 @@ class TopicsController extends Controller
         if ( ! empty($topic->slug) && $topic->slug != $request->slug) {
             return redirect($topic->link(), 301);
         }
-
+//        $markdown = new MarkdownHandler;
+//        $topic->body = $markdown->convertMarkdownToHtml($topic->body);
         return view('topics.show', compact('topic'));
     }
 

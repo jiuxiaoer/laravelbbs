@@ -26,7 +26,7 @@
   @include('layouts._header')
 
   <div class="container">
-
+    <div id="yield">
     @include('shared._messages')
     <!--pjax加载动画-->
       <div id="loading">
@@ -39,7 +39,9 @@
         </div>
       </div>
       <!--pjax加载动画 结束-->
-    @yield('content')
+      @yield('content')
+    </div>
+
 
   </div>
 

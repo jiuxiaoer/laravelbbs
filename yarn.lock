@@ -1757,6 +1757,18 @@
     "kind-of" "^6.0.2"
     "shallow-clone" "^3.0.0"
 
+"codemirror-spell-checker@*":
+  "integrity" "sha1-HGYPkIlIPMtRE7m6nKGcP0mTNx4="
+  "resolved" "https://registry.npm.taobao.org/codemirror-spell-checker/download/codemirror-spell-checker-1.1.2.tgz"
+  "version" "1.1.2"
+  dependencies:
+    "typo-js" "*"
+
+"codemirror@*":
+  "integrity" "sha1-lwQqJCAn/gyHwJs2vAGTHTe3ZSc="
+  "resolved" "https://registry.npmmirror.com/codemirror/download/codemirror-5.63.3.tgz"
+  "version" "5.63.3"
+
 "collect.js@^4.28.5":
   "integrity" "sha1-L+zFNbXlcSpcfuqiwtUQ8xE+xCM="
   "resolved" "https://registry.nlark.com/collect.js/download/collect.js-4.29.0.tgz"
@@ -3397,6 +3409,11 @@
   dependencies:
     "semver" "^6.0.0"
 
+"marked@*":
+  "integrity" "sha1-/U/xb2uZ++a+tynyB36nF9DsTts="
+  "resolved" "https://registry.npmmirror.com/marked/download/marked-4.0.0.tgz?cache=0&sync_timestamp=1635865817948&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fmarked%2Fdownload%2Fmarked-4.0.0.tgz"
+  "version" "4.0.0"
+
 "md5.js@^1.3.4":
   "integrity" "sha1-tdB7jjIW4+J81yjXL3DR5qNCAF8="
   "resolved" "https://registry.npm.taobao.org/md5.js/download/md5.js-1.3.5.tgz"
@@ -4735,6 +4752,15 @@
   "resolved" "https://registry.npmmirror.com/signal-exit/download/signal-exit-3.0.5.tgz"
   "version" "3.0.5"
 
+"simplemde@^1.11.2":
+  "integrity" "sha1-ojo12XjSxA7wfewAjJLwcNjggOM="
+  "resolved" "https://registry.npm.taobao.org/simplemde/download/simplemde-1.11.2.tgz"
+  "version" "1.11.2"
+  dependencies:
+    "codemirror" "*"
+    "codemirror-spell-checker" "*"
+    "marked" "*"
+
 "slash@^3.0.0":
   "integrity" "sha1-ZTm+hwwWWtvVJAIg2+Nh8bxNRjQ="
   "resolved" "https://registry.npm.taobao.org/slash/download/slash-3.0.0.tgz"
@@ -5049,6 +5075,11 @@
   dependencies:
     "media-typer" "0.3.0"
     "mime-types" "~2.1.24"
+
+"typo-js@*":
+  "integrity" "sha1-M0oNjD9sVvLx4V/fbDFnd5PLvps="
+  "resolved" "https://registry.npmmirror.com/typo-js/download/typo-js-1.2.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Ftypo-js%2Fdownload%2Ftypo-js-1.2.1.tgz"
+  "version" "1.2.1"
 
 "unicode-canonical-property-names-ecmascript@^2.0.0":
   "integrity" "sha1-MBrNxSVjFnDTn2FG4Od/9rvevdw="

@@ -1,5 +1,5 @@
 //定义加载区域
-$(document).pjax('a', '#app');
+$(document).pjax('a', '#yield');
 //定义pjax有效时间，超过这个时间会整页刷新
 $.pjax.defaults.timeout = 1200;
 //显示加载动画
