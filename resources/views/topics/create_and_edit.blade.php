@@ -96,7 +96,6 @@
 
   <script>
     $(document).ready(function() {
-      location.reload()
       var editor = new Simditor({
         textarea: $('#editor'),
         upload: {
