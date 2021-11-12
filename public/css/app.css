@@ -16215,9 +16215,6 @@ body {
 #app > div.container {
   margin-bottom: 100px;
 }
-#app > div.container .pagination {
-  flex-wrap: wrap;
-}
 
 .simditor-body img {
   max-width: 100%;

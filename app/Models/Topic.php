@@ -69,4 +69,30 @@ class Topic extends Model
         $this->reply_count = $this->replies->count();
         $this->save();
     }
+
+    /**
+     * 二级评论
+     * O(2n) 级别
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function sumAll(){
+        $toArray = $this->replies()->with('user')->get();
+        $childrenArr=[];
+        foreach ($toArray as $index => $item ) {
+            if ($item['pid']!=null){
+                if (!array_key_exists($item['pid'],$childrenArr)){
+                    $childrenArr[$item['pid']]=[];
+                }
+                array_push($childrenArr[$item['pid']],$item);
+
+                unset($toArray[$index]);
+            }
+        }
+        foreach ($toArray as &$value){
+            if (array_key_exists($value['id'],$childrenArr)){
+                $value['children']=$childrenArr[$value['id']];
+            }
+        }
+        return $toArray;
+    }
 }

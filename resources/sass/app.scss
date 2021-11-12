@@ -29,7 +29,6 @@ body {
   margin-top: 0px;
 }
 
-
 /* Sticky footer styles */
 html {
   position: relative;
@@ -40,6 +39,7 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -62,6 +62,7 @@ body {
     }
   }
 }
+
 /* User register page */
 .register-page {
   img.captcha {
@@ -107,16 +108,17 @@ body {
     }
   }
 }
+
 /* Add container and footer space */
 #app > div.container {
   margin-bottom: 100px;
-  .pagination {
-    flex-wrap: wrap
-  }
 }
+
 .simditor-body img {
   max-width:100%;
 }
+
+
 /* Topic Show Page */
 
 @import "topic_body";
@@ -133,7 +135,9 @@ body {
     }
   }
 }
+
 /* 回复列表 */
+
 .topic-reply {
   a {
     color: inherit;
@@ -144,6 +148,7 @@ body {
     color: #b3b3b3;
   }
 }
+
 /* 消息通知 */
 .notification-badge {
   .badge {

@@ -8,7 +8,7 @@ class Reply extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['content'];
+    protected $fillable = ['content','pid'];
 
     public function topic()
     {
@@ -18,5 +18,9 @@ class Reply extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function subComment(){
+        return $this->where(['pid'=>$this->id])->get();
     }
 }

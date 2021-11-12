@@ -6,7 +6,6 @@
 @section('content')
 
   <div class="row">
-
     <div class="col-lg-3 col-md-3 hidden-sm hidden-xs author-info">
       <div class="card ">
         <div class="card-body">
@@ -65,13 +64,41 @@
       </div>
 
       {{-- 用户回复列表 --}}
-      <div class="card topic-reply mt-4">
+
         <div class="card-body">
+          @include('topics._reply_list', ['replies' => $topic->sumAll()])
           @includeWhen(Auth::check(), 'topics._reply_box', ['topic' => $topic])
-          @include('topics._reply_list', ['replies' => $topic->replies()->with('user')->get()])
         </div>
-      </div>
+
 
     </div>
+
   </div>
+@section('styles')
+  <link href="{{ asset('css/jquery.atwho.min.css') }}" rel="stylesheet">
 @stop
+
+@section('scripts')
+  <script src="{{ asset('js/jquery.caret.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.atwho.min.js') }}"></script>
+  <script>
+    $(document).ready(function() {
+      $('.huifu').click(function() {
+        $('#reply_'+$(this).attr("id")).show()
+        $('#reply_'+$(this).attr("id")+'_content').attr('value','@'+$(this).attr("name"))
+      })
+      $('.form-control').atwho({
+        at: "@",
+        callbacks: {
+          remoteFilter: function(query, callback) {
+            $.getJSON("/usersjson", {q: query}, function(data) {
+              callback(data)
+            });
+          }
+        }
+      });
+    });
+  </script>
+@stop
+@stop
+

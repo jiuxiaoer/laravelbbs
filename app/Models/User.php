@@ -10,7 +10,8 @@ use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable implements MustVerifyEmailContract{
+class User extends Authenticatable implements MustVerifyEmailContract
+{
     use HasRoles;
     use Traits\LastActivedAtHelper;
     use Traits\ActiveUserHelper;
@@ -76,8 +77,7 @@ class User extends Authenticatable implements MustVerifyEmailContract{
         $this->unreadNotifications->markAsRead();
     }
 
-    public function setPasswordAttribute($value)
-    {
+    public function setPasswordAttribute($value) {
         // 如果值的长度等于 60，即认为是已经做过加密的情况
         if (strlen($value) != 60) {
 
@@ -87,13 +87,13 @@ class User extends Authenticatable implements MustVerifyEmailContract{
 
         $this->attributes['password'] = $value;
     }
-    public function setAvatarAttribute($path)
-    {
+
+    public function setAvatarAttribute($path) {
         // 如果不是 `http` 子串开头，那就是从后台上传的，需要补全 URL
-        if ( ! \Str::startsWith($path, 'http')&&! \Str::startsWith($path, '/uploads/')) {
+        if (!\Str::startsWith($path, 'http') && !\Str::startsWith($path, '/uploads/')) {
 
             // 拼接完整的 URL
-            $path =  "/uploads/images/avatars/$path";
+            $path = "/uploads/images/avatars/$path";
         }
 
         $this->attributes['avatar'] = $path;
