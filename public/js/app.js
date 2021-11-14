@@ -3012,7 +3012,16 @@ $(document).on('pjax:click', function () {
 
 $(document).on('pjax:end', function () {
   $("#loading").hide();
+  loadJs();
 });
+
+function loadJs() {
+  if (window.location.pathname.indexOf('/topics') != -1) {
+    $.getScript("/js/jquery.caret.min.js");
+    $.getScript("/js/jquery.atwho.min.js");
+    $.getScript("/js/reply.js");
+  }
+}
 
 /***/ }),
 

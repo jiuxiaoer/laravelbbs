@@ -73,6 +73,8 @@
     </div>
 
   </div>
+@stop
+
 @section('styles')
   <link href="{{ asset('css/jquery.atwho.min.css') }}" rel="stylesheet">
   <style>
@@ -101,31 +103,6 @@
   <script src="{{ asset('js/jquery.caret.min.js') }}"></script>
   <script src="{{ asset('js/jquery.atwho.min.js') }}"></script>
   <script>
-    $(document).ready(function() {
-      $('.huifu').click(function() {
-        $('#reply_'+$(this).attr("id")).show()
-        if ($(this).attr("name")!==undefined){
-          $('#reply_'+$(this).attr("id")+'_content').html('<a style="color: #0d8ddb" href="/users/'+$(this).attr("user_id")+'" target="_blank">'+'@'+$(this).attr("name")+'</a>'+" ")
-        }else {
-          $('#reply_'+$(this).attr("id")+'_content').html('')
-        }
 
-      })
-      $('.form-control').atwho({
-        at: "@",
-        callbacks: {
-          remoteFilter: function(query, callback) {
-            $.getJSON("/usersjson", {q: query}, function(data) {
-              callback(data)
-            });
-          }
-        }
-      });
-    });
-    function check(form) {
-      $('#'+$(form).attr("id")+'_textarea').html($('#'+$(form).attr("id")+'_content').html())
-    }
   </script>
 @stop
-@stop
-
