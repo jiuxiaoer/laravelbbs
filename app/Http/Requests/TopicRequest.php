@@ -18,6 +18,7 @@ class TopicRequest extends Request
                     'title'       => 'required|min:2',
                     'body'        => 'required|min:3',
                     'category_id' => 'required|numeric',
+                    'editorDiv-html-code'=>'required|min:3'
                 ];
             }
             case 'GET':
@@ -34,6 +35,7 @@ class TopicRequest extends Request
         return [
             'title.min' => '标题必须至少两个字符',
             'body.min' => '文章内容必须至少三个字符',
+            'editorDiv-html-code.min' => '文章内容必须至少三个字符',
         ];
     }
 }

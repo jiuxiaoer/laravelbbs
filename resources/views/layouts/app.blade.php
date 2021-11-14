@@ -12,7 +12,6 @@
   <title>@yield('title', 'LaraBBS') - {{ setting('site_name', '代码艺术家') }}</title>
   <meta name="description" content="@yield('description', setting('seo_description', 'LaraBBS 爱好者社区。'))" />
   <meta name="keywords" content="@yield('keyword', setting('seo_keyword', 'LaraBBS,社区,论坛,开发者论坛'))" />
-
   <!-- Styles -->
   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 

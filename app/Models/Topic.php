@@ -9,7 +9,7 @@ class Topic extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'body', 'category_id', 'excerpt', 'slug'
+        'title', 'body','html', 'category_id', 'excerpt', 'slug'
     ];
 
     /**
@@ -76,7 +76,7 @@ class Topic extends Model
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function sumAll(){
-        $toArray = $this->replies()->with('user')->get();
+        $toArray = $this->replies()->with('user', 'topic')->get();
         $childrenArr=[];
         foreach ($toArray as $index => $item ) {
             if ($item['pid']!=null){

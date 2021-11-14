@@ -18,6 +18,11 @@ class ReplyObserver
             $reply->topic->updateReplyCount();
             // 通知话题作者有新的评论
             $reply->topic->user->notify(new TopicReplied($reply));
+            //被@的用户
+            $user=$reply->matchAt();
+            if ($user){
+                $reply->matchAt()->notify(new TopicReplied($reply));
+            }
         }
     }
 

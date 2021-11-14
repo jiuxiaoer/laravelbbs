@@ -59,6 +59,8 @@ class TopicsController extends Controller
         }
 //        $markdown = new MarkdownHandler;
 //        $topic->body = $markdown->convertMarkdownToHtml($topic->body);
+          $topic->body =$topic->html;
+
         return view('topics.show', compact('topic'));
     }
 
@@ -71,7 +73,6 @@ class TopicsController extends Controller
         $topic->fill($request->all());
         $topic->user_id = Auth::id();
         $topic->save();
-
 //        return redirect()->route('topics.show', $topic->id)->with('success', '帖子创建成功！');
         return redirect()->to($topic->link())->with('success', '成功创建话题！');
     }

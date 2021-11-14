@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use App\Models\Reply;
 
-class TopicReplied extends Notification implements ShouldQueue
+class TopicReplied extends Notification
 {
     use Queueable;
 
@@ -45,7 +45,9 @@ class TopicReplied extends Notification implements ShouldQueue
         $url = $this->reply->topic->link(['#reply' . $this->reply->id]);
 
         return (new MailMessage)
-            ->line('你的话题有新回复！')
-            ->action('查看回复', $url);
+            ->subject($this->reply->user->name.'评论了您的文章:在回复中提及了你')
+            ->action('点击访问', $url)
+            ->line("文章: ")
+            ->line($this->reply->topic->title);
     }
 }

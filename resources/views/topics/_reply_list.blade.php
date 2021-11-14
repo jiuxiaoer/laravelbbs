@@ -91,9 +91,9 @@
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <input type="hidden" name="topic_id" value="{{ $topic->id }}">
       <input type="hidden" name="pid" value="{{ $reply->id }}">
+      <input type="hidden" name="notify" id="reply_{{ $reply->id }}_notify" value="">
       <div class="form-group">
         <div class="textarea form-control" id="reply_{{ $reply->id }}_content"  contenteditable="true">
-
         </div>
         <textarea id="reply_{{ $reply->id }}_textarea" style="display: none"  name="content"  class="form-control"   placeholder="回复~~~~~"></textarea>
       </div>
