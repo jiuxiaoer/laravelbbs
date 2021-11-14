@@ -17,7 +17,7 @@
           {{-- 回复--}}
           @if (Auth::check())
           <span class="meta float-right">
-                <button type="submit" name="{{ $reply->user->name }}" id="{{ $reply->id }}" class="btn btn-default btn-xs pull-left text-secondary huifu">
+                <button type="submit" user_id="{{ $reply->user_id }}" id="{{ $reply->id }}" class="btn btn-default btn-xs pull-left text-secondary huifu">
                  回复
                 </button>
             </span>
@@ -42,7 +42,6 @@
         </div>
       </div>
     </li>
-
       @isset($reply->children)
         @foreach ($reply->children as $indexc => $childrenReply)
         <li class="media" name="reply{{ $childrenReply->id }}" id="reply{{ $childrenReply->id }}">
@@ -61,7 +60,7 @@
             {{-- 回复--}}
             @if (Auth::check())
               <span class="meta float-right">
-                <button type="submit" name="{{ $childrenReply->user->name }}" id="{{ $reply->id }}" class="btn btn-default btn-xs pull-left text-secondary huifu">
+                <button type="submit" name="{{ $childrenReply->user->name }}" user_id="{{ $childrenReply->user_id }}" id="{{ $reply->id }}" class="btn btn-default btn-xs pull-left text-secondary huifu">
                  回复
                 </button>
             </span>
@@ -88,14 +87,17 @@
       </li>
         @endforeach
       @endisset
-    <form id="reply_{{ $reply->id }}" action="{{ route('replies.store') }}" method="POST" style="display:none">
+    <form id="reply_{{ $reply->id }}"  action="{{ route('replies.store') }}" method="POST" style="display:none">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <input type="hidden" name="topic_id" value="{{ $topic->id }}">
       <input type="hidden" name="pid" value="{{ $reply->id }}">
       <div class="form-group">
-        <input type="text" id="reply_{{ $reply->id }}_content" class="form-control" name="content"  placeholder="回复~~~~~">
+        <div class="textarea form-control" id="reply_{{ $reply->id }}_content"  contenteditable="true">
+
+        </div>
+        <textarea id="reply_{{ $reply->id }}_textarea" style="display: none"  name="content"  class="form-control"   placeholder="回复~~~~~"></textarea>
       </div>
-      <button type="submit" class="btn btn-success">回复</button>
+      <button type="submit" onclick="return check(this.form)" class="btn btn-success">回复</button>
     </form>
     </div>
     @if ( ! $loop->last)

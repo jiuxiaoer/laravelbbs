@@ -4,6 +4,7 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+
 // Fontawesome
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free/scss/regular';
@@ -148,7 +149,9 @@ body {
     color: #b3b3b3;
   }
 }
-
+.pagination {
+  flex-wrap: wrap
+}
 /* 消息通知 */
 .notification-badge {
   .badge {

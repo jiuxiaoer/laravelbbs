@@ -16568,6 +16568,10 @@ body {
   color: #b3b3b3;
 }
 
+.pagination {
+  flex-wrap: wrap;
+}
+
 /* 消息通知 */
 .notification-badge .badge {
   font-size: 12px;

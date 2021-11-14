@@ -4,7 +4,6 @@
 @section('description', $topic->excerpt)
 
 @section('content')
-
   <div class="row">
     <div class="col-lg-3 col-md-3 hidden-sm hidden-xs author-info">
       <div class="card ">
@@ -76,6 +75,26 @@
   </div>
 @section('styles')
   <link href="{{ asset('css/jquery.atwho.min.css') }}" rel="stylesheet">
+  <style>
+    .textarea {
+      width: 100%;
+      min-height: 100px;
+      max-height: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 3px;
+      outline: 0;
+      border: 1px solid #a0b3d6;
+      font-size: 14px;
+      line-height: 24px;
+      word-wrap: break-word;
+      overflow-x: hidden;
+      overflow-y: auto;
+      border-color: rgba(82, 168, 236, 0.8);
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+    }
+
+  </style>
 @stop
 
 @section('scripts')
@@ -85,7 +104,12 @@
     $(document).ready(function() {
       $('.huifu').click(function() {
         $('#reply_'+$(this).attr("id")).show()
-        $('#reply_'+$(this).attr("id")+'_content').attr('value','@'+$(this).attr("name"))
+        if ($(this).attr("name")!==undefined){
+          $('#reply_'+$(this).attr("id")+'_content').html('<a style="color: #0d8ddb" href="/users/'+$(this).attr("user_id")+'" target="_blank">'+'@'+$(this).attr("name")+'</a>'+" ")
+        }else {
+          $('#reply_'+$(this).attr("id")+'_content').html('')
+        }
+
       })
       $('.form-control').atwho({
         at: "@",
@@ -98,6 +122,9 @@
         }
       });
     });
+    function check(form) {
+      $('#'+$(form).attr("id")+'_textarea').html($('#'+$(form).attr("id")+'_content').html())
+    }
   </script>
 @stop
 @stop
