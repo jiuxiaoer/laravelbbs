@@ -1,5 +1,6 @@
 {
     "/js/app.js": "/js/app.js?id=898dd6a9ef4973b7dc01",
+    "/css/app.css": "/css/app.css?id=4b7a6e59cef6950d622a",
     "/js/editormd.min.js": "/js/editormd.min.js?id=88a379309da77c6a48a5",
     "/js/hotkeys.js": "/js/hotkeys.js?id=2683fa599862132f1982",
     "/js/module.js": "/js/module.js?id=378c6b989c0c43adbb52",
@@ -26,6 +27,5 @@
     "/fonts/fontawesome-webfont.ttf": "/fonts/fontawesome-webfont.ttf?id=6f280ce7293cd57a1638",
     "/fonts/fontawesome-webfont.woff": "/fonts/fontawesome-webfont.woff?id=d09265c3b3a7af08ffc0",
     "/fonts/fontawesome-webfont.woff2": "/fonts/fontawesome-webfont.woff2?id=18a4424b8bbb5017e77b",
-    "/fonts/FontAwesome.otf": "/fonts/FontAwesome.otf?id=e82f7fb67b1f04abc18a",
-    "/css/app.css": "/css/app.css?id=4b7a6e59cef6950d622a"
+    "/fonts/FontAwesome.otf": "/fonts/FontAwesome.otf?id=e82f7fb67b1f04abc18a"
 }

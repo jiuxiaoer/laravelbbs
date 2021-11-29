@@ -119,7 +119,7 @@
 
                             //删除对话框
                             this.remove();
-                            
+
                             return false;
                         }]
                     }

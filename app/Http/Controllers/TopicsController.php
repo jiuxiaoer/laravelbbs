@@ -60,7 +60,6 @@ class TopicsController extends Controller
 //        $markdown = new MarkdownHandler;
 //        $topic->body = $markdown->convertMarkdownToHtml($topic->body);
           $topic->body =$topic->html;
-
         return view('topics.show', compact('topic'));
     }
 
